@@ -1,0 +1,303 @@
+/* Rocketseat: LaunchBase Bootcamp
+   Building Foodfy Challenge */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #fff;
+}
+
+.header {
+    width: 100%;
+    height: 93px;
+}
+
+.header-wrapper {
+    position: relative;
+
+    width: 940px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.header-logo {
+    position: absolute;
+    bottom: 25px;
+}
+
+.header-nav {
+    display: flex;
+
+    height: 100%;
+    margin-left: 200px;
+
+    align-items: center;
+}
+
+.header-nav ul {
+    display: flex;
+
+    list-style-type: none;
+}
+
+.header-nav li {
+    margin: 0 15px;
+}
+
+.header-nav a {
+    font-size: 16px;
+    font-weight: normal;
+
+    text-decoration: none;
+
+    color: #111;
+}
+
+main {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.main-wrapper {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+    height: 366px;
+    margin-bottom: 50px;
+
+    border-radius: 30px;
+    background-color: #fbdfdb;
+
+    align-items: center;
+}
+
+.main-wrapper-text {
+    width: 316px;
+    margin-left: 60px;
+}
+
+.main-wrapper-text h1 {
+    font-size: 32px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    color: #111;
+}
+
+.main-wrapper-text p {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 28px;
+
+    opacity: .7;
+    color: #000;
+}
+
+.main-wrapper-image {
+    position: absolute;
+    top: 66px;
+    right: 100px;
+}
+
+.main-header {
+    margin-bottom: 20px;
+}
+
+.main-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+
+    color: #111;
+}
+
+.recipes {
+    display: grid;
+
+    width: 940px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.recipe-image {
+    overflow: hidden;
+
+    height: 140px;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+}
+
+.recipe-image img {
+    width: 100%;
+}
+
+.recipe-title {
+    display: inline-block;
+
+    margin-bottom: 5px;
+}
+
+.recipe-title h4 {
+    font-size: 18px;
+    font-weight: normal;
+
+    color: #111;
+}
+
+.recipe-author {
+    margin-bottom: 10px;
+}
+
+.recipe-author p {
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #777;
+}
+
+footer {
+    width: 100%;
+    height: 62px;
+    margin-top: 40px;
+
+    background-color: #eee;
+}
+
+.copyright {
+    display: flex;
+
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.copyright p {
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #999;
+}
+
+a.current-page {
+    font-weight: bold;
+}
+
+.information h2 {
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    color: #111;
+}
+
+.information p {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 28px;
+
+    margin-bottom: 30px;
+
+    color: #444;
+}
+
+.information h3 {
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    color: #111;
+}
+
+.recipe-image-active,
+.recipe-title-active {
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    visibility: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .6);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-active {
+    visibility: visible;
+
+    opacity: 1;
+}
+
+.modal-recipe {
+    overflow: hidden;
+
+    width: 660px;
+    height: 413px;
+
+    text-align: center;
+
+    opacity: 2;
+    border-radius: 16px;
+    background-color: #fff;
+}
+
+.modal-recipe-image {
+    display: flex;
+    overflow: hidden;
+
+    width: 600px;
+    height: 200px;
+    margin: 30px auto 20px;
+
+    border-radius: 15px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-recipe-title h2 {
+    font-size: 24px;
+    font-weight: normal;
+
+    margin-bottom: 5px;
+
+    color: #111;
+}
+
+.modal-recipe-author p {
+    font-size: 18px;
+    font-weight: normal;
+
+    margin-bottom: 60px;
+
+    color: #777;
+}
+
+.modal-recipe-close a {
+    font-size: 16px;
+    font-weight: normal;
+
+    cursor: pointer;
+
+    color: #999;
+}
