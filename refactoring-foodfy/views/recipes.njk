@@ -1,0 +1,87 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Refactoring Foodfy Challenge -->
+
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <script src="/scripts/main.js" defer></script>
+    <title>Recipes | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/about">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/recipes" class="current-page">
+                                Receitas
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="main-header">
+            <div>
+                <h2>
+                    <!-- Main header title -->
+                </h2>
+            </div>
+        </header>
+
+        <section class="recipes">
+
+            {% for i in range(0, 2) -%}
+
+                {% for recipe in recipes %}
+
+                    <article class="recipe" id="{{ recipe.id }}">
+                        <div class="recipe-image recipe-image-active">
+                            <img src="images/{{ recipe.recipeImage }}" alt="{{ recipe.title }}">
+                        </div>
+
+                        <div class="recipe-title recipe-title-active">
+                            <h4>
+                                {{ recipe.title }}
+                            </h4>
+                        </div>
+
+                        <div class="recipe-author">
+                            <p>
+                                {{ recipe.author }}
+                            </p>
+                        </div>
+                    </article>
+
+                {% endfor %}
+
+            {%- endfor %}
+
+        </section>
+    </main>
+
+{% endblock %}
