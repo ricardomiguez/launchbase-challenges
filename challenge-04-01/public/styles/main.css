@@ -1,0 +1,72 @@
+/* Rocketseat: LaunchBase Bootcamp
+   Challenge 04-01: Header */
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #fff;
+}
+
+header
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 32px;
+
+    text-align: center;
+
+    background-color: #fff;
+}
+
+header a + a
+{
+    margin-left: 32px;
+}
+
+header a
+{
+    font-size: 20px;
+
+    position: relative;
+
+    transition: color 200ms ease-in-out;
+    text-decoration: none;
+
+    color: #14193c;
+}
+
+header a:hover
+{
+    color: #323755;
+}
+
+header a::after
+{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    content: '';
+    transition: all 200ms ease-in-out;
+
+    opacity: 0;
+    background-color: #14193c;
+}
+
+header a:hover::after
+{
+    width: 100%;
+
+    opacity: 1;
+    background-color: #323755;
+}
