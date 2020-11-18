@@ -1,0 +1,156 @@
+/* Rocketseat: LaunchBase Bootcamp
+   Challenge 04-02: Teacher's Card */
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #fff;
+}
+
+header
+{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 32px;
+
+    text-align: center;
+
+    background-color: #fff;
+}
+
+header a + a
+{
+    margin-left: 32px;
+}
+
+header a
+{
+    font-size: 20px;
+
+    position: relative;
+
+    transition: color 200ms ease-in-out;
+    text-decoration: none;
+
+    color: #14193c;
+}
+
+header a:hover
+{
+    color: #323755;
+}
+
+header a::after
+{
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    content: '';
+    transition: all 200ms ease-in-out;
+
+    opacity: 0;
+    background-color: #14193c;
+}
+
+header a:hover::after
+{
+    width: 100%;
+
+    opacity: 1;
+    background-color: #323755;
+}
+
+/* Card */
+
+.card {
+    display: grid;
+
+    width: 800px;
+    min-height: 400px;
+    margin: 32px auto;
+
+    animation: card-right 800ms ease-in-out;
+
+    background-color: white;
+    box-shadow: 0 0 40px 16px rgba(32, 32, 40, .16);
+
+    grid-template-columns: .4fr .6fr;
+}
+
+@keyframes card-right {
+    from {
+        transform: translateX(-800px);
+
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.profile-picture {
+    background: url(https://source.unsplash.com/collection/10464078/800x800) no-repeat center center / cover;
+}
+
+.profile-details {
+    padding: 32px;
+}
+
+.profile-details h3 {
+    font-size: 20px;
+    font-weight: bold;
+
+    padding-bottom: 24px;
+
+    text-align: center;
+
+    color: #14193c;
+}
+
+.profile-detail {
+    padding: 8px 0;
+
+    border-top: 1px solid #eee;
+}
+
+.profile-detail:nth-child(2) {
+    border: none;
+}
+
+.profile-detail div:first-child {
+    font-size: 16px;
+    font-weight: bold;
+
+    padding-bottom: 8px;
+
+    color: #14193c;
+}
+
+.profile-detail div:nth-child(2) {
+    font-size: 12px;
+    font-weight: normal;
+
+    color: #323755;
+}
+
+.profile-detail span {
+    display: inline-block;
+
+    margin-right: 4px;
+    padding: 4px 8px;
+
+    text-transform: uppercase;
+
+    background-color: #ddd;
+}
