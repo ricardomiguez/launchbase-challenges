@@ -1,0 +1,24 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "registrationDate": 1605899904555,
+      "profilePicture": "https://avatars3.githubusercontent.com/u/53007527?s=460&u=e62d3e3901b2e28548fcd4c71c9109da82a7a40a&v=4",
+      "name": "Ricardo Miguez",
+      "birthday": 656467200000,
+      "academicDegree": "Bachelor",
+      "teachingMethod": "Online",
+      "subjects": "Arts, Design, Music"
+    },
+    {
+      "id": 2,
+      "registrationDate": 1605899959470,
+      "profilePicture": "https://scontent.fopo1-1.fna.fbcdn.net/v/t1.0-1/p160x160/17156014_1410389348983186_6213720074181950267_n.jpg?_nc_cat=101&ccb=2&_nc_sid=dbb9e7&_nc_ohc=ZO0yEcraI8gAX98uAhF&_nc_ht=scontent.fopo1-1.fna&tp=6&oh=2f68696916f02d78d0a51a483247105d&oe=5FDE3615",
+      "name": "Thaís Silva",
+      "birthday": 739497600000,
+      "academicDegree": "Master",
+      "teachingMethod": "Onsite",
+      "subjects": "Portuguese, Law"
+    }
+  ]
+}
