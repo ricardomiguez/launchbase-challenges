@@ -1,0 +1,106 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 04-05: Put and Delete -->
+
+<div class="profile-detail hide-border">
+    <div>
+        Profile Picture
+    </div>
+
+    <div>
+        <input type="url" name="profilePicture" placeholder="URL" value="{{ teacher.profilePicture }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Name
+    </div>
+
+    <div>
+        <input type="text" name="name" placeholder="First Name and Last Name" value="{{ teacher.name }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Birthday
+    </div>
+
+    <div>
+        <input type="date" name="birthday" value="{{ teacher.birthday }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Academic Degree
+    </div>
+
+    <div>
+        <select name="academicDegree">
+                <option value="Associate"
+                        {% if teacher.academicDegree == "Associate" %}
+                            selected
+                        {% endif %}>
+                    Associate
+                </option>
+
+                <option value="Bachelor"
+                        {% if teacher.academicDegree == "Bachelor" %}
+                            selected
+                        {% endif %}>
+                    Bachelor
+                </option>
+
+                <option value="Master"
+                        {% if teacher.academicDegree == "Master" %}
+                            selected
+                        {% endif %}>
+                    Master
+                </option>
+
+                <option value="Doctor"
+                        {% if teacher.academicDegree == "Doctor" %}
+                            selected
+                        {% endif %}>
+                    Doctor
+                </option>
+        </select>
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Teaching Method
+    </div>
+
+    <div>
+        <span>
+                <input type="radio" name="teachingMethod" value="Onsite"
+                    {% if teacher.teachingMethod == "Onsite" %}
+                        checked
+                    {% endif %}>
+                Onsite
+        </span>
+
+        <span>
+                <input type="radio" name="teachingMethod" value="Online"
+                    {% if teacher.teachingMethod == "Online" %}
+                        checked
+                    {% endif %}>
+                Online
+        </span>
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Subjects
+    </div>
+
+    <div>
+        <input type="text" name="subjects" placeholder="First subject, second subject, third subject etc." value="{{ teacher.subjects }}">
+    </div>
+</div>
+
+<button type="submit">Save</button>
