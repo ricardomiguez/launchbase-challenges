@@ -105,6 +105,7 @@ exports.update = function(req, res) {
     const teacher = {
         ...foundTeacher,
         ...req.body,
+        id: Number(id),
         birthday: Date.parse(birthday)
     };
 
