@@ -1,0 +1,333 @@
+/* Rocketseat: LaunchBase Bootcamp
+   Challenge 04-07: Structuring Students */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #fff;
+}
+
+header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 32px;
+
+    text-align: center;
+
+    background-color: #fff;
+}
+
+header a + a {
+    margin-left: 32px;
+}
+
+.menu-option {
+    font-size: 20px;
+
+    position: relative;
+
+    transition: color 200ms ease-in-out;
+    text-decoration: none;
+
+    color: #14193c;
+}
+
+.menu-option:hover {
+    color: #323755;
+}
+
+.menu-option::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    content: '';
+    transition: all 200ms ease-in-out;
+
+    opacity: 0;
+    background-color: #14193c;
+}
+
+.menu-option:hover::after {
+    width: 100%;
+
+    opacity: 1;
+    background-color: #323755;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* Card */
+
+.card {
+    display: grid;
+
+    width: 800px;
+    min-height: 400px;
+    margin: 32px auto;
+
+    animation: card-right 800ms ease-in-out;
+
+    background-color: white;
+    box-shadow: 0 0 40px 16px rgba(32, 32, 40, .16);
+
+    grid-template-columns: .4fr .6fr;
+}
+
+@keyframes card-right {
+    from {
+        transform: translateX(-800px);
+
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.profile-details {
+    padding: 32px;
+}
+
+.profile-details h3 {
+    font-size: 20px;
+    font-weight: bold;
+
+    padding-bottom: 24px;
+
+    text-align: center;
+
+    color: #14193c;
+}
+
+.profile-detail {
+    padding: 8px 0;
+
+    border-top: 1px solid #eee;
+}
+
+.profile-detail:nth-child(2) {
+    border: none;
+}
+
+.profile-detail div:first-child {
+    font-size: 16px;
+    font-weight: bold;
+
+    padding-bottom: 8px;
+
+    color: #14193c;
+}
+
+.profile-detail div:nth-child(2) {
+    font-size: 12px;
+    font-weight: normal;
+
+    color: #323755;
+}
+
+.profile-detail span {
+    display: inline-block;
+
+    margin-right: 4px;
+    padding: 4px 8px;
+
+    text-transform: uppercase;
+
+    background-color: #ddd;
+}
+
+/* Form */
+
+.hide-border {
+    border: none;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+input,
+select {
+    font-size: 12px;
+    font-weight: normal;
+
+    width: 100%;
+    padding-left: 8px;
+
+    color: #323755;
+    outline: none;
+}
+
+input[type='url'],
+input[type='text'],
+input[type='date'],
+input[type='email'],
+input[type='number'],
+select {
+    height: 32px;
+}
+
+input[type='radio'] {
+    margin: 4px 0 6px 0;
+}
+
+button[type='submit'],
+.button {
+    font-size: 14px;
+    font-weight: normal;
+
+    width: 100%;
+    margin-top: 16px;
+    padding: 8px 32px;
+
+    cursor: pointer;
+
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: #14193c;
+}
+
+.button {
+    display: block;
+
+    box-sizing: border-box;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+button.delete {
+    margin-top: 24px;
+
+    background-color: #e63946;
+}
+
+/* List */
+
+.table-container {
+    display: block;
+
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container th {
+    font-size: 16px;
+
+    text-transform: uppercase;
+
+    color: #14193c;
+}
+
+.teachers-list th {
+    width: calc( 100% / 3 );
+}
+
+.students-list th {
+    width: calc( 100% / 4 );
+}
+
+th,
+td {
+    padding: 16px;
+}
+
+td {
+    font-size: 14px;
+
+    color: #323755;
+    border-bottom: 1px solid #eee;
+}
+
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: center;
+}
+
+tr:first-child td {
+    border-top: 1px solid #eee;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+td:first-child {
+    display: grid;
+
+    grid-template-columns: 40px 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+td:first-child span {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+}
+
+td:last-child a {
+    font-size: 12px;
+
+    padding: 8px 16px;
+
+    text-decoration: none;
+
+    color: white;
+    border-radius: 4px;
+    background-color: #14193c;
+}
+
+.new-registration-wrapper {
+    display: flex;
+
+    border-top: 1px solid #eee;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.new-registration-wrapper a {
+    font-size: 16px;
+
+    display: flex;
+
+    width: 40px;
+    height: 40px;
+    margin: 32px 0;
+
+    transition: all 200ms ease-in-out;
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 50%;
+    background-color: #ddd;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.new-registration-wrapper a:hover {
+    background-color: #ccc;
+}
