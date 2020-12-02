@@ -1,0 +1,127 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Administration Challenge -->
+
+{% extends "admin-layout.njk" %}
+
+{% block head %}
+
+    <script src="/scripts/add-fields.js" defer></script>
+    <title>{{ recipe.title }} | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="admin-main-header edit-page-header">
+            <div>
+                <h2>
+                    Editando receita
+                </h2>
+
+                <div class="admin-header-button">
+                    <form action="/admin/recipes?_method=delete" method="post">
+                        <button type="submit" class="delete-button">
+                            Deletar
+                        </button>
+
+                        <input type="hidden" name="id" value="{{ recipe.id }}">
+                    </form>
+
+                    <button type="submit" form="recipe-form" class="save-button">
+                        Salvar receita
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <form id="recipe-form" action="/admin/recipes?_method=put" method="post">
+            <section class="recipe-details">
+                <div class="admin-recipe-details-image">
+                    <h5>
+                        Imagem da receita
+                    </h5>
+
+                    <div>
+                        <input type="url" name="recipeImageUrl" value="{{ recipe.recipeImageUrl }}">
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-ingredients edit-page">
+                    <h5>
+                        Ingredientes
+                    </h5>
+
+                    <div id="ingredients">
+
+                        {% for ingredient in recipe.ingredients %}
+
+                            <div class="ingredient">
+                                <input type="text" name="ingredients" value="{{ ingredient }}">
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="add-button">
+                        <button type="button" class="add-ingredient">
+                            Adicionar novo ingrediente
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-preparation edit-page">
+                    <h5>
+                        Modo de preparo
+                    </h5>
+
+                    <div id="preparation-steps">
+
+                        {% for preparation in recipe.preparation %}
+
+                        <div class="preparation-step">
+                            <input type="text" name="preparation" value="{{ preparation }}">
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="add-button">
+                        <button type="button" class="add-preparation-step">
+                            Adicionar novo passo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-information">
+                    <h5>
+                        Informações adicionais
+                    </h5>
+
+                    <div>
+                        <textarea name="information">{{ recipe.information }}</textarea>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id" value="{{ recipe.id }}">
+            </section>
+        </form>
+    </main>
+
+{% endblock %}

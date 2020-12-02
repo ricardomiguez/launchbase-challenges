@@ -1,0 +1,122 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Administration Challenge -->
+
+{% extends "admin-layout.njk" %}
+
+{% block head %}
+
+    <title>{{ recipe.title }} | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="admin-main-header show-page-header">
+            <div>
+                <h2>
+                    Receita: {{ recipe.title }}
+                </h2>
+
+                <div class="admin-header-hyperlink">
+                    <a href="/admin/recipes/{{ recipe.id }}/edit">
+                        Editar receita
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="recipe-details">
+            <div class="recipe-details-image">
+                <img src="{{ recipe.recipeImageUrl }}" alt="{{ recipe.title }}">
+            </div>
+
+            <div class="recipe-details-title">
+                <h1>
+                    {{ recipe.title }}
+                </h1>
+            </div>
+
+            <div class="recipe-details-author admin-recipe-details-author">
+                <p>
+                    por {{ recipe.author }}
+                </p>
+            </div>
+
+            <div class="admin-recipe-details-ingredients">
+                <div class="recipe-details-ingredients-title">
+                    <h2>
+                        Ingredientes
+                    </h2>
+                </div>
+
+                <div class="recipe-details-ingredients-list admin-recipe-details-ingredients-list">
+                    <ul>
+
+                        {% for ingredient in recipe.ingredients %}
+
+                            <li>
+                                <p>
+                                    {{ ingredient }};
+                                </p>
+                            </li>
+
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="admin-recipe-details-preparation">
+                <div class="recipe-details-preparation-title">
+                    <h2>
+                        Modo de preparo
+                    </h2>
+                </div>
+
+                <div class="recipe-details-preparation-list admin-recipe-details-preparation-list">
+                    <ul>
+
+                        {% for preparation in recipe.preparation %}
+
+                            <li>
+                                <p>
+                                    {{ preparation }}
+                                </p>
+                            </li>
+
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recipe-details-information">
+                <div class="recipe-details-information-title">
+                    <h2>
+                        Informações adicionais
+                    </h2>
+                </div>
+
+                <div class="recipe-details-information-text">
+                    <p>{{ recipe.information }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
