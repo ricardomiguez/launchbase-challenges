@@ -1,0 +1,38 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-01: Application Refactoring and Database Configuration -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    <section class="profile-picture"
+             style="background: url({{ teacher.profilePicture }}) no-repeat center center / cover">
+    </section>
+
+    <section class="profile-details">
+        <form action="/teachers?_method=put" method="post">
+            <h3>
+                Registration
+            </h3>
+
+            {% include "teachers/fields.njk" %}
+
+            <input type="hidden"
+                   name="id"
+                   value="{{ teacher.id }}">
+        </form>
+
+        <form class="deleteForm" action="/teachers?_method=delete" method="post">
+            <input type="hidden"
+                   name="id"
+                   value="{{ teacher.id }}">
+
+            <button class="delete" type="submit">Delete</button>
+        </form>
+    </section>
+</div>
+
+{% include "confirm.njk" %}
+
+{% endblock %}

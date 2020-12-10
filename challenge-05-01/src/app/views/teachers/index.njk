@@ -1,0 +1,53 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-01: Application Refactoring and Database Configuration -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card table-container teachers-list">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    Subjects
+                </th>
+
+                <th>
+                    Option
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for teacher in teachers %}
+                <tr>
+                    <td>
+                        <span style="background-image: url({{ teacher.profilePicture }})"></span>
+                        {{ teacher.name }}
+                    </td>
+
+                    <td>
+                        {{ teacher.subjects }}
+                    </td>
+
+                    <td>
+                        <a href="/teachers/{{ teacher.id }}">
+                            Show Profile
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="new-registration-wrapper">
+        <a href="/teachers/registration">+</a>
+    </div>
+</div>
+
+{% endblock %}

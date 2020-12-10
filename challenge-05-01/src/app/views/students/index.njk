@@ -1,0 +1,61 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-01: Application Refactoring and Database Configuration -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card table-container students-list">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    Email
+                </th>
+
+                <th>
+                    School Grade Level
+                </th>
+
+                <th>
+                    Option
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>
+                        <span style="background-image: url({{ student.profilePicture }})"></span>
+                        {{ student.name }}
+                    </td>
+
+                    <td>
+                        {{ student.email }}
+                    </td>
+
+                    <td>
+                        {{ student.schoolGradeLevel }}
+                    </td>
+
+                    <td>
+                        <a href="/students/{{ student.id }}">
+                            Show Profile
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="new-registration-wrapper">
+        <a href="/students/registration">+</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-01: Application Refactoring and Database Configuration -->
+
+<div class="profile-detail hide-border">
+    <div>
+        Profile Picture
+    </div>
+
+    <div>
+        <input type="url" name="profilePicture" placeholder="URL" value="{{ student.profilePicture }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Name
+    </div>
+
+    <div>
+        <input type="text" name="name" placeholder="First Name and Last Name" value="{{ student.name }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Birthday
+    </div>
+
+    <div>
+        <input type="date" name="birthday" value="{{ student.birthday }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Email
+    </div>
+
+    <div>
+        <input type="email" name="email" placeholder="email@address.com" value="{{ student.email }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        School Grade Level
+    </div>
+
+    <div>
+        <select name="schoolGradeLevel">
+                <option value="5th grade"
+                        {% if student.academicDegree == "5th grade" %}
+                            selected
+                        {% endif %}>
+                    5th grade
+                </option>
+
+                <option value="6th grade"
+                        {% if student.academicDegree == "6th grade" %}
+                            selected
+                        {% endif %}>
+                    6th grade
+                </option>
+
+                <option value="7th grade"
+                        {% if student.academicDegree == "7th grade" %}
+                            selected
+                        {% endif %}>
+                    7th grade
+                </option>
+
+                <option value="8th grade"
+                        {% if student.academicDegree == "8th grade" %}
+                            selected
+                        {% endif %}>
+                    8th grade
+                </option>
+
+                <option value="9th grade"
+                        {% if student.academicDegree == "9th grade" %}
+                            selected
+                        {% endif %}>
+                    9th grade
+                </option>
+
+                <option value="10th grade"
+                        {% if student.academicDegree == "10th grade" %}
+                            selected
+                        {% endif %}>
+                    10th grade
+                </option>
+
+                <option value="11th grade"
+                        {% if student.academicDegree == "11th grade" %}
+                            selected
+                        {% endif %}>
+                    11th grade
+                </option>
+
+                <option value="12th grade"
+                        {% if student.academicDegree == "12th grade" %}
+                            selected
+                        {% endif %}>
+                    12th grade
+                </option>
+        </select>
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Weekly Workload
+    </div>
+
+    <div>
+        <input type="number" name="weeklyWorkload" placeholder="Maximum of 60 hours per week" min="1" max="60" value="{{ student.weeklyWorkload }}">
+    </div>
+</div>
+
+<button type="submit">Save</button>
