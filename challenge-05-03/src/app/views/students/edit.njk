@@ -1,0 +1,38 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-03: Database Relationships and Filters -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    <section class="profile-picture"
+             style="background: url({{ student.avatar_url }}) no-repeat center center / cover">
+    </section>
+
+    <section class="profile-details">
+        <form action="/students?_method=put" method="post">
+            <h3>
+                Registration
+            </h3>
+
+            {% include "students/fields.njk" %}
+
+            <input type="hidden"
+                   name="id"
+                   value="{{ student.id }}">
+        </form>
+
+        <form class="deleteForm" action="/students?_method=delete" method="post">
+            <input type="hidden"
+                   name="id"
+                   value="{{ student.id }}">
+
+            <button class="delete" type="submit">Delete</button>
+        </form>
+    </section>
+</div>
+
+{% include "confirm.njk" %}
+
+{% endblock %}

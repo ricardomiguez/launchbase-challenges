@@ -1,0 +1,14 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-03: Database Relationships and Filters -->
+
+<script>
+    const deleteForm = document.querySelector(".deleteForm");
+
+        deleteForm.addEventListener("submit", function(event) {
+            const confirmation = confirm("Do you really want to delete?");
+
+            if (!confirmation) {
+                event.preventDefault();
+            }
+        });
+</script>

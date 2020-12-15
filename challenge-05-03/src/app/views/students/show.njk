@@ -1,0 +1,87 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-03: Database Relationships and Filters -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    <section class="profile-picture"
+            style="background: url({{ student.avatar_url }}) no-repeat center center / cover">
+    </section>
+
+    <section class="profile-details">
+        <h3>
+            Details
+        </h3>
+
+        <div class="profile-detail">
+            <div>
+                Name
+            </div>
+
+            <div>
+                {{ student.name }}
+            </div>
+        </div>
+
+        <div class="profile-detail">
+            <div>
+                Email
+            </div>
+
+            <div>
+                {{ student.email }}
+            </div>
+        </div>
+
+        <div class="profile-detail">
+            <div>
+                Birthday
+            </div>
+
+            <div>
+                {{ student.birth_date }}
+            </div>
+        </div>
+
+        <div class="profile-detail">
+            <div>
+                School Grade Level
+            </div>
+
+            <div>
+                {{ student.school_level }}
+            </div>
+        </div>
+
+        <div class="profile-detail">
+            <div>
+                Weekly Workload
+            </div>
+
+            <div>
+                {{ student.weekly_workload }}
+                    {% if student.weekly_workload > 1 %}
+                        hours
+                    {% else %}
+                        hour
+                    {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-detail">
+            <div>
+                Teacher
+            </div>
+
+            <div>
+                {{ student.teacher_name }}
+            </div>
+        </div>
+
+        <a href="/students/{{ student.id }}/edit" class="button">Edit</a>
+     </section>
+</div>
+
+{% endblock %}
