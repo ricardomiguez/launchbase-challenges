@@ -1,0 +1,139 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-04: Database Results Pagination -->
+
+<div class="profile-detail hide-border">
+    <div>
+        Profile Picture
+    </div>
+
+    <div>
+        <input type="url" name="avatar_url" placeholder="URL" value="{{ student.avatar_url }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Name
+    </div>
+
+    <div>
+        <input type="text" name="name" placeholder="First Name and Last Name" value="{{ student.name }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Birthday
+    </div>
+
+    <div>
+        <input type="date" name="birth_date" value="{{ student.birth_date }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Email
+    </div>
+
+    <div>
+        <input type="email" name="email" placeholder="email@address.com" value="{{ student.email }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        School Grade Level
+    </div>
+
+    <div>
+        <select name="school_level">
+                <option value="5th grade"
+                        {% if student.school_level == "5th grade" %}
+                            selected
+                        {% endif %}>
+                    5th grade
+                </option>
+
+                <option value="6th grade"
+                        {% if student.school_level == "6th grade" %}
+                            selected
+                        {% endif %}>
+                    6th grade
+                </option>
+
+                <option value="7th grade"
+                        {% if student.school_level == "7th grade" %}
+                            selected
+                        {% endif %}>
+                    7th grade
+                </option>
+
+                <option value="8th grade"
+                        {% if student.school_level == "8th grade" %}
+                            selected
+                        {% endif %}>
+                    8th grade
+                </option>
+
+                <option value="9th grade"
+                        {% if student.school_level == "9th grade" %}
+                            selected
+                        {% endif %}>
+                    9th grade
+                </option>
+
+                <option value="10th grade"
+                        {% if student.school_level == "10th grade" %}
+                            selected
+                        {% endif %}>
+                    10th grade
+                </option>
+
+                <option value="11th grade"
+                        {% if student.school_level == "11th grade" %}
+                            selected
+                        {% endif %}>
+                    11th grade
+                </option>
+
+                <option value="12th grade"
+                        {% if student.school_level == "12th grade" %}
+                            selected
+                        {% endif %}>
+                    12th grade
+                </option>
+        </select>
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Weekly Workload
+    </div>
+
+    <div>
+        <input type="number" name="weekly_workload" placeholder="Maximum of 60 hours per week" min="1" max="60" value="{{ student.weekly_workload }}">
+    </div>
+</div>
+
+<div class="profile-detail hide-border">
+    <div>
+        Teacher
+    </div>
+
+    <div>
+        <select name="teacher">
+            {% for teacher in teacherOptions %}
+                <option value="{{ teacher.id }}"
+                        {% if student.teacher_id == teacher.id %}
+                            selected
+                        {% endif %}>
+                    {{ teacher.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<button type="submit">Save</button>

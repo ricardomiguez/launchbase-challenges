@@ -1,0 +1,71 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 05-04: Database Results Pagination -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card table-container students-index">
+    <div class="filter-container">
+        <form action="/students" method="get">
+            <input type="text" name="filter" placeholder="Name or Email" value="{{ filter }}">
+
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    Email
+                </th>
+
+                <th>
+                    School Grade Level
+                </th>
+
+                <th>
+                    Option
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>
+                        <span style="background-image: url({{ student.avatar_url }})"></span>
+                        {{ student.name }}
+                    </td>
+
+                    <td>
+                        {{ student.email }}
+                    </td>
+
+                    <td>
+                        {{ student.school_level }}
+                    </td>
+
+                    <td>
+                        <a href="/students/{{ student.id }}">
+                            Show Profile
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="new-registration-wrapper">
+        <a href="/students/create">+</a>
+    </div>
+
+    <div class="pagination" data-page={{pagination.page}} data-total={{pagination.total}} data-filter={{filter}}></div>
+</div>
+
+{% endblock %}
