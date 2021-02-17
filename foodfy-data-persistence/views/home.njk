@@ -1,0 +1,98 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layout.njk" %}
+
+{% block head %}
+
+    <title>Home | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="images/logo-black.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/about">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/recipes">
+                                Receitas
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <div class="main-wrapper">
+            <div class="main-wrapper-text">
+                <h1>
+                    As melhores receitas
+                </h1>
+
+                <p>
+                    Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
+                </p>
+            </div>
+
+            <div class="main-wrapper-image">
+                <img src="images/chef.png" alt="Chef">
+            </div>
+        </div>
+
+        <header class="main-header">
+            <div>
+                <h2>
+                    Mais acessadas
+                </h2>
+            </div>
+        </header>
+
+        <section class="recipes">
+
+            {% for recipe in recipes %}
+
+                <article class="recipe">
+                    <div class="recipe-image">
+                        <img src="{{ recipe.recipeImageUrl }}" alt="{{ recipe.title }}">
+                    </div>
+
+                    <div class="recipe-title">
+                        <h4>
+                            {{ recipe.title }}
+                        </h4>
+                    </div>
+
+                    <div class="recipe-author">
+                        <p>
+                            {{ recipe.author }}
+                        </p>
+                    </div>
+                </article>
+
+            {% endfor %}
+
+        </section>
+    </main>
+
+{% endblock %}

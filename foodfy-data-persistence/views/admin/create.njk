@@ -1,0 +1,105 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "admin-layout.njk" %}
+
+{% block head %}
+
+    <script src="/scripts/add-fields.js" defer></script>
+    <title>{{ recipe.title }} | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <form action="/admin/recipes" method="post">
+            <header class="admin-main-header edit-page-header">
+                <div>
+                    <h2>
+                        Criando receita
+                    </h2>
+
+                    <div class="admin-header-button">
+                        <button type="submit" class="save-button">
+                            Salvar receita
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="recipe-details">
+                <div class="admin-recipe-details-image">
+                    <h5>
+                        Imagem da receita
+                    </h5>
+
+                    <div>
+                        <input type="url" name="recipeImageUrl">
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-ingredients edit-page">
+                    <h5>
+                        Ingredientes
+                    </h5>
+
+                    <div id="ingredients">
+                        <div class="ingredient">
+                            <input type="text" name="ingredients[]">
+                        </div>
+                    </div>
+
+                    <div class="add-button">
+                        <button type="button" class="add-ingredient">
+                            Adicionar novo ingrediente
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-preparation edit-page">
+                    <h5>
+                        Modo de preparo
+                    </h5>
+
+                    <div id="preparation-steps">
+                        <div class="preparation-step">
+                            <input type="text" name="preparation[]">
+                        </div>
+                    </div>
+
+                    <div class="add-button">
+                        <button type="button" class="add-preparation-step">
+                            Adicionar novo passo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-information">
+                    <h5>
+                        Informações adicionais
+                    </h5>
+
+                    <div>
+                        <textarea name="information"></textarea>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </main>
+
+{% endblock %}

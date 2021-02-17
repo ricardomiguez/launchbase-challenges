@@ -1,0 +1,72 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "admin-layout.njk" %}
+
+{% block head %}
+
+    <title>Home | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="admin-main-header">
+            <div>
+                <h2>
+                    Gerenciar receitas
+                </h2>
+            </div>
+        </header>
+
+        <section class="recipes admin-recipes">
+
+            {% for recipe in recipes %}
+
+                <article class="admin-recipe">
+                    <div class="admin-recipe-image">
+                        <img src="{{ recipe.recipeImageUrl }}" alt="{{ recipe.title }}">
+                    </div>
+
+                    <div>
+                        <div class="recipe-title">
+                            <h4>
+                                {{ recipe.title }}
+                            </h4>
+                        </div>
+
+                        <div class="recipe-author admin-recipe-author">
+                            <p>
+                                por {{ recipe.author }}
+                            </p>
+                        </div>
+
+                        <div class="admin-recipe-hyperlink">
+                            <a href="/admin/recipes/{{ recipe.id }}">
+                                Visualizar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            {% endfor %}
+
+        </section>
+    </main>
+
+{% endblock %}
