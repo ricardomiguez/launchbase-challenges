@@ -36,7 +36,7 @@ module.exports = {
     post(req, res) {
         const keys = Object.keys(req.body);
 
-        for (let key of keys) {
+        for(let key of keys) {
             if (req.body[key] == "") {
                 return res.send("Please fill in all the required fields");
             }
@@ -73,7 +73,7 @@ module.exports = {
     put(req, res) {
         const keys = Object.keys(req.body);
 
-        for (let key of keys) {
+        for(let key of keys) {
             if (req.body[key] == "") {
                 return res.send("Please fill in all the required fields");
             }

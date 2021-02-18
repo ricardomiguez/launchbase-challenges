@@ -4,7 +4,7 @@
 const currentPage = location.pathname;
 const menuOptions = document.querySelectorAll(".menu-option");
 
-for (let menuOption of menuOptions) {
+for(let menuOption of menuOptions) {
     if (currentPage.includes(menuOption.getAttribute("href"))) {
         menuOption.classList.add("active");
     }
@@ -19,7 +19,7 @@ if (pagination) {
 const pageNumbers = document.querySelectorAll(".page-number");
 const currentPageNumber = +pagination.dataset.page;
 
-for (let pageNumber of pageNumbers) {
+for(let pageNumber of pageNumbers) {
     if (currentPageNumber == pageNumber.getAttribute("value")) {
         pageNumber.classList.add("active");
     }
@@ -29,7 +29,7 @@ function paginate(selectedPage, totalPages) {
     let pages = [],
         previousPage;
 
-    for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
+    for(let currentPage = 1; currentPage <= totalPages; currentPage++) {
         const firstAndLastTwoPages = currentPage <= 2 || currentPage >= totalPages - 1,
             pageBeforeSelectedPage = currentPage >= selectedPage - 1,
             pageAfterSelectedPage = currentPage <= selectedPage + 1;
@@ -60,7 +60,7 @@ function createPagination(pagination) {
 
     let elements = "";
 
-    for (let page of pages) {
+    for(let page of pages) {
         if (String(page).includes("...")) {
             elements += `<span>${page}</span>`;
         } else {
