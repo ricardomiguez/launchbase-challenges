@@ -1,12 +1,12 @@
 <!-- Rocketseat: LaunchBase Bootcamp
      Foodfy Data Persistence -->
 
-{% extends "layout.njk" %}
+{% extends "layouts/public.njk" %}
 
 {% block head %}
 
     <script src="/scripts/main.js" defer></script>
-    <title>{{ recipeDetails.title }} | Foodfy</title>
+    <title>{{ recipe.title }} | Foodfy</title>
 
 {% endblock %}
 
@@ -34,6 +34,12 @@
                                 Receitas
                             </a>
                         </li>
+
+                        <li>
+                            <a href="/chefs">
+                                Chefs
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -45,28 +51,20 @@
 {% block content %}
 
     <main>
-        <header class="main-header">
-            <div>
-                <h2>
-                    <!-- Main header title -->
-                </h2>
-            </div>
-        </header>
-
-        <section class="recipe-details">
+        <section class="recipe-details show-page">
             <div class="recipe-details-image">
-                <img src="{{ recipeDetails.recipeImageUrl }}" alt="{{ recipeDetails.title }}">
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
             </div>
 
             <div class="recipe-details-title">
                 <h1>
-                    {{ recipeDetails.title }}
+                    {{ recipe.title }}
                 </h1>
             </div>
 
             <div class="recipe-details-author">
                 <p>
-                    por {{ recipeDetails.author }}
+                    por {{ recipe.author }}
                 </p>
             </div>
 
@@ -84,7 +82,7 @@
                 <div class="recipe-details-ingredients-list recipe-details-hide">
                     <ul>
 
-                        {% for ingredient in recipeDetails.ingredients %}
+                        {% for ingredient in recipe.ingredients %}
 
                             <li>
                                 <p>
@@ -112,7 +110,7 @@
                 <div class="recipe-details-preparation-list recipe-details-hide">
                     <ul>
 
-                        {% for preparation in recipeDetails.preparation %}
+                        {% for preparation in recipe.preparation %}
 
                             <li>
                                 <p>
@@ -138,7 +136,7 @@
                 </div>
 
                 <div class="recipe-details-information-text recipe-details-hide">
-                    <p>{{ recipeDetails.information }}</p>
+                    <p>{{ recipe.information }}</p>
                 </div>
             </div>
         </section>

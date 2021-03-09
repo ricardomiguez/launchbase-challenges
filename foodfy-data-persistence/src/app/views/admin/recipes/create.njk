@@ -1,12 +1,12 @@
 <!-- Rocketseat: LaunchBase Bootcamp
      Foodfy Data Persistence -->
 
-{% extends "admin-layout.njk" %}
+{% extends "layouts/admin.njk" %}
 
 {% block head %}
 
     <script src="/scripts/add-fields.js" defer></script>
-    <title>{{ recipe.title }} | Foodfy</title>
+    <title>Criando receita | Foodfy Admin</title>
 
 {% endblock %}
 
@@ -18,6 +18,24 @@
                 <a href="/admin/recipes">
                     <img src="/images/logo-white.png" alt="Foodfy">
                 </a>
+            </div>
+
+            <div class="admin-header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin/recipes" class="current-page">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/chefs">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
@@ -49,7 +67,40 @@
                     </h5>
 
                     <div>
-                        <input type="url" name="recipeImageUrl">
+                        <input type="url" name="image">
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-title edit-page">
+                    <h5>
+                        Título
+                    </h5>
+
+                    <div>
+                        <input type="text" name="title">
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-chef edit-page">
+                    <h5>
+                        Chef
+                    </h5>
+
+                    <div>
+                        <select name="chef_id" required>
+                            <option value="" disabled selected>
+                                Selecione um chef
+                            </option>
+
+                            {% for chef  in chefs %}
+
+                                <option value="{{ chef.id }}">
+                                    {{ chef.name }}
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
                     </div>
                 </div>
 

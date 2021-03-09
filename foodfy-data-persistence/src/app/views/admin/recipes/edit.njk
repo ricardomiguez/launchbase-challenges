@@ -1,0 +1,201 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layouts/admin.njk" %}
+
+{% block head %}
+
+    <script src="/scripts/add-fields.js" defer></script>
+    <title>Editando receita | Foodfy Admin</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="admin-header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin/recipes" class="current-page">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/chefs">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="admin-main-header edit-page-header">
+            <div>
+                <h2>
+                    Editando receita
+                </h2>
+
+                <div class="admin-header-button">
+                    <form action="/admin/recipes?_method=delete" method="post">
+                        <button type="submit" class="delete-button">
+                            Deletar
+                        </button>
+
+                        <input type="hidden" name="id" value="{{ recipe.id }}">
+                    </form>
+
+                    <button type="submit" form="recipe-form" class="save-button">
+                        Salvar receita
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <form id="recipe-form" action="/admin/recipes?_method=put" method="post">
+            <section class="recipe-details">
+                <div class="admin-recipe-details-image">
+                    <h5>
+                        Imagem da receita
+                    </h5>
+
+                    <div>
+                        <input type="url" name="image" value="{{ recipe.image }}">
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-title edit-page">
+                    <h5>
+                        Título
+                    </h5>
+
+                    <div>
+                        <input type="text" name="title" value="{{ recipe.title }}">
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-chef edit-page">
+                    <h5>
+                        Chef
+                    </h5>
+
+                    <div>
+                        <select name="chef_id" required>
+                            <option value="" disabled selected>
+                                Selecione um chef
+                            </option>
+
+                            {% for chef  in chefs %}
+
+                                <option value="{{ chef.id }}"
+                                        {% if recipe.chef_id == chef.id %}
+                                            selected
+                                        {% endif %}>
+                                    {{ chef.name }}
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-ingredients edit-page">
+                    <h5>
+                        Ingredientes
+                    </h5>
+
+                    <div id="ingredients">
+
+                        {% if recipe.ingredients.length > 0 %}
+
+                            {% for ingredient in recipe.ingredients %}
+
+                                <div class="ingredient">
+                                    <input type="text" name="ingredients[]" value="{{ ingredient }}">
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="ingredient">
+                                <input type="text" name="ingredients[]">
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="add-button">
+                        <button type="button" class="add-ingredient">
+                            Adicionar novo ingrediente
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-preparation edit-page">
+                    <h5>
+                        Modo de preparo
+                    </h5>
+
+                    <div id="preparation-steps">
+
+                        {% if recipe.preparation.length > 0 %}
+
+                            {% for preparation in recipe.preparation %}
+
+                                <div class="preparation-step">
+                                    <input type="text" name="preparation[]" value="{{ preparation }}">
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="preparation">
+                                <input type="text" name="preparation[]">
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    <div class="add-button">
+                        <button type="button" class="add-preparation-step">
+                            Adicionar novo passo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="admin-recipe-details-information">
+                    <h5>
+                        Informações adicionais
+                    </h5>
+
+                    <div>
+                        <textarea name="information">{{ recipe.information }}</textarea>
+                    </div>
+                </div>
+            </section>
+
+            <input type="hidden" name="id" value="{{ recipe.id }}">
+        </form>
+    </main>
+
+{% endblock %}

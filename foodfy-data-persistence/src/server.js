@@ -4,13 +4,13 @@
 const express = require("express");
 const server = express();
 const routes = require("./routes");
-const port = 3000;
+const port = 3001;
 
 const methodOverride = require("method-override");
 
 const nunjucks = require("nunjucks");
 
-nunjucks.configure("views", {
+nunjucks.configure("src/app/views", {
     express: server,
     autoescape: false,
     noCache: true

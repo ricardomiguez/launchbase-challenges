@@ -11,7 +11,7 @@ function addIngredient() {
         return false;
     }
 
-    newField.children[0] == "";
+    newField.children[0].value = "";
     ingredients.appendChild(newField);
 }
 
@@ -25,7 +25,7 @@ function addPreparationStep() {
         return false;
     }
 
-    newField.children[0] == "";
+    newField.children[0].value = "";
     preparationSteps.appendChild(newField);
 }
 

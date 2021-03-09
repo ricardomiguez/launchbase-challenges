@@ -1,11 +1,11 @@
 <!-- Rocketseat: LaunchBase Bootcamp
      Foodfy Data Persistence -->
 
-{% extends "admin-layout.njk" %}
+{% extends "layouts/admin.njk" %}
 
 {% block head %}
 
-    <title>{{ recipe.title }} | Foodfy</title>
+    <title>{{ recipe.title }} | Foodfy Admin</title>
 
 {% endblock %}
 
@@ -17,6 +17,24 @@
                 <a href="/admin/recipes">
                     <img src="/images/logo-white.png" alt="Foodfy">
                 </a>
+            </div>
+
+            <div class="admin-header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin/recipes" class="current-page">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/chefs">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
@@ -42,7 +60,7 @@
 
         <section class="recipe-details">
             <div class="recipe-details-image">
-                <img src="{{ recipe.recipeImageUrl }}" alt="{{ recipe.title }}">
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
             </div>
 
             <div class="recipe-details-title">

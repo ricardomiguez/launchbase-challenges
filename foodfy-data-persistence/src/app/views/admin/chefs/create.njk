@@ -1,0 +1,86 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layouts/admin.njk" %}
+
+{% block head %}
+
+    <title>Criando chef | Foodfy Admin</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="admin-header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin/recipes">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/chefs" class="current-page">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <form action="/admin/chefs" method="post">
+            <header class="admin-main-header edit-page-header">
+                <div>
+                    <h2>
+                        Criando chef
+                    </h2>
+
+                    <div class="admin-header-button">
+                        <button type="submit" class="save-button">
+                            Salvar chef
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="chef-details">
+                <div class="admin-chef-details-name">
+                    <h5>
+                        Nome
+                    </h5>
+
+                    <div>
+                        <input type="text" name="name">
+                    </div>
+                </div>
+
+                <div class="admin-chef-details-avatar">
+                    <h5>
+                        Avatar
+                    </h5>
+
+                    <div>
+                        <input type="url" name="avatar_url">
+                    </div>
+                </div>
+            </section>
+        </form>
+    </main>
+
+{% endblock %}

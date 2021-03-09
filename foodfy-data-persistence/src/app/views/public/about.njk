@@ -1,11 +1,11 @@
 <!-- Rocketseat: LaunchBase Bootcamp
      Foodfy Data Persistence -->
 
-{% extends "layout.njk" %}
+{% extends "layouts/public.njk" %}
 
 {% block head %}
 
-    <title>About | Foodfy</title>
+    <title>Sobre | Foodfy</title>
 
 {% endblock %}
 
@@ -33,6 +33,12 @@
                                 Receitas
                             </a>
                         </li>
+
+                        <li>
+                            <a href="/chefs">
+                                Chefs
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -44,15 +50,7 @@
 {% block content %}
 
     <main>
-        <header class="main-header">
-            <div>
-                <h2>
-                    <!-- Main header title -->
-                </h2>
-            </div>
-        </header>
-
-        <section class="informations">
+        <section class="information-container">
             <article class="information">
                 <h2>
                     Sobre o Foodfy

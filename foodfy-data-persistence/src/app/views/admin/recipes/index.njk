@@ -1,0 +1,109 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layouts/admin.njk" %}
+
+{% block head %}
+
+    <title>Receitas | Foodfy Admin</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="admin-header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin/recipes" class="current-page">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/chefs">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="admin-main-header index-page-header">
+            <div class="admin-recipe">
+                <h2>
+                    Gerenciar receitas
+                </h2>
+
+                <div class="admin-header-hyperlink">
+                    <a href="/admin/recipes/create">
+                        Criar receita
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        {% if recipes.length > 0 %}
+
+            <section class="recipes admin-recipes">
+
+                {% for recipe in recipes %}
+
+                    <article class="admin-recipe">
+                        <div class="admin-recipe-image">
+                            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                        </div>
+
+                        <div>
+                            <div class="recipe-title">
+                                <h4>
+                                    {{ recipe.title }}
+                                </h4>
+                            </div>
+
+                            <div class="recipe-author admin-recipe-author">
+                                <p>
+                                    por {{ recipe.author }}
+                                </p>
+                            </div>
+
+                            <div class="admin-recipe-hyperlink">
+                                <a href="/admin/recipes/{{ recipe.id }}">
+                                    Visualizar
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                {% endfor %}
+
+            </section>
+
+        {% else %}
+
+            <div>
+                <p>
+                    Não existem receitas cadastradas
+                </p>
+            </div>
+
+        {% endif %}
+
+    </main>
+
+{% endblock %}

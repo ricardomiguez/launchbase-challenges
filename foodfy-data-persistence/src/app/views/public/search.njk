@@ -1,0 +1,112 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layouts/public.njk" %}
+
+{% block head %}
+
+    <script src="/scripts/main.js" defer></script>
+    <title>Buscando | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="images/logo-black.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/about">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/recipes">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/chefs">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-filter">
+                <form action="/search" method="get">
+                    <input type="text" name="filter" placeholder="Buscar uma receita">
+
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="main-header search-page-header">
+            <div>
+                <h2>
+                    Buscando por "{{ filter }}"
+                </h2>
+            </div>
+        </header>
+
+        {% if recipes.length > 0 %}
+
+            <section class="recipes">
+
+                {% for recipe in recipes %}
+
+                    <article class="recipe" id="{{ recipe.id }}">
+                        <div class="recipe-image recipe-image-active">
+                            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                        </div>
+
+                        <div>
+                            <div class="recipe-title recipe-title-active">
+                                <h4>
+                                    {{ recipe.title }}
+                                </h4>
+                            </div>
+
+                            <div class="recipe-author">
+                                <p>
+                                    por {{ recipe.author }}
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                {% endfor %}
+
+            </section>
+
+        {% else %}
+
+            <div>
+                <p class="message-wrapper">
+                    Não foram encontrados resultados para a sua busca
+                </p>
+            </div>
+
+        {% endif %}
+
+    </main>
+
+{% endblock %}

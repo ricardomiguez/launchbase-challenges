@@ -1,0 +1,101 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layouts/public.njk" %}
+
+{% block head %}
+
+    <title>Chefs | Foodfy</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="/images/logo-black.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/about">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/recipes">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/chefs" class="current-page">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+
+        {% if chefs.length > 0 %}
+
+            <section class="chefs">
+
+                {% for chef in chefs %}
+
+                    <article class="chef">
+                            <div class="chef-avatar">
+                                <img src="{{ chef.avatar_url }}" alt="{{ chef.name }}">
+                            </div>
+
+                            <div>
+                                <div class="chef-name">
+                                    <p>
+                                        {{ chef.name }}
+                                    </p>
+                                </div>
+
+                                <div class="chef-total-recipes">
+                                    <p>
+                                        {{ chef.total_recipes }}
+                                            {% if chef.total_recipes == 1 %}
+                                                receita
+                                            {% else %}
+                                                receitas
+                                            {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                    </article>
+
+                {% endfor %}
+
+            </section>
+
+        {% else %}
+
+            <div class="chefs-message-wrapper">
+                <p>
+                    Não existem chefs cadastrados
+                </p>
+            </div>
+
+        {% endif %}
+
+    </main>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Foodfy Data Persistence -->
+
+{% extends "layouts/admin.njk" %}
+
+{% block head %}
+
+    <title>{{ chef.name }} | Foodfy Admin</title>
+
+{% endblock %}
+
+{% block header %}
+
+    <header class="admin-header">
+        <div class="header-wrapper">
+            <div class="admin-header-logo">
+                <a href="/admin/recipes">
+                    <img src="/images/logo-white.png" alt="Foodfy">
+                </a>
+            </div>
+
+            <div class="admin-header-nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/admin/recipes">
+                                Receitas
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/chefs" class="current-page">
+                                Chefs
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <header class="admin-main-header show-page-header">
+            <div class="admin-chef">
+                <h2>
+                    Chef: {{ chef.name }}
+                </h2>
+
+                <div class="admin-header-hyperlink">
+                    <a href="/admin/chefs/{{ chef.id }}/edit">
+                        Editar chef
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="chef-details">
+            <div class="chef-details-avatar">
+                <img src="{{ chef.avatar_url }}" alt="{{ chef.name }}">
+            </div>
+
+            <div class="chef-details-name">
+                <h1>
+                    {{ chef.name }}
+                </h1>
+            </div>
+
+            <div class="recipe-details-author">
+                <p>
+                    {{ chefRecipes.length }}
+                        {% if chefRecipes.length == 1 %}
+                            receita
+                        {% else %}
+                            receitas
+                        {% endif %}
+                </p>
+            </div>
+        </section>
+
+        <header class="admin-main-header">
+            <div>
+                <h2>
+                    Receitas
+                </h2>
+            </div>
+        </header>
+
+        <section class="recipes admin-recipes">
+
+            {% for chefRecipe in chefRecipes %}
+
+                <article class="admin-recipe">
+                    <div class="admin-recipe-image">
+                        <img src="{{ chefRecipe.image }}" alt="{{ chefRecipe.title }}">
+                    </div>
+
+                    <div>
+                        <div class="recipe-title">
+                            <h4>
+                                {{ chefRecipe.title }}
+                            </h4>
+                        </div>
+
+                        <div class="recipe-author admin-recipe-author">
+                            <p>
+                                por {{ chefRecipe.author }}
+                            </p>
+                        </div>
+
+                        <div class="admin-recipe-hyperlink">
+                            <a href="/admin/recipes/{{ chefRecipe.id }}">
+                                Visualizar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            {% endfor %}
+
+        </section>
+    </main>
+
+{% endblock %}
