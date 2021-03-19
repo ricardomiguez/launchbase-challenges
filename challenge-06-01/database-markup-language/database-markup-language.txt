@@ -1,0 +1,66 @@
+// Rocketseat: LaunchBase Bootcamp
+// Challenge 06-01: Mini Challenges */
+
+Table customers {
+  id int [pk, increment]
+  orders_id int[]
+  name text
+  birthday date
+  gender text
+  created_at timestamp [default: `now()`]
+}
+
+Table agencies {
+  id int [pk, increment]
+  addresses_id int
+  orders_id int[]
+  name text
+  description text
+  opening_hours text
+  created_at timestamp [default: `now()`]
+}
+
+Table addresses {
+  id int [pk, increment]
+  street text
+  city text
+  country text
+  zip_code text
+}
+
+Table cars {
+  id int [pk, increment]
+  models_id int
+  color text
+  mileage number
+  license_plate text
+  price number
+}
+
+Table models {
+  id int [pk, increment]
+  brand text
+  model text
+  year text
+  gearbox text
+}
+
+Table orders {
+  id int [pk, increment]
+  pick_up_date date
+  return_date date
+  price number
+  created_at timestamp [default: `now()`]
+}
+
+Table cars_orders {
+  cars_id int
+  orders_id int
+}
+
+Ref: agencies.addresses_id - addresses.id
+Ref: cars.models_id > models.id
+Ref: customers.orders_id > orders.id
+Ref: agencies.orders_id > orders.id
+Ref: cars_orders.cars_id > cars.id
+Ref: cars_orders.orders_id > orders.id
