@@ -1,13 +1,15 @@
 /* Rocketseat: LaunchBase Bootcamp
    Challenge 06-01: Mini Challenges */
 
-function printDouble(number) {
+function printDouble(number, total) {
     return new Promise(resolve => {
         setTimeout(
             () => {
-                console.log(number * 2);
+                let result = number * 2 + total;
 
-                resolve();
+                console.log(result);
+
+                resolve(result);
             },
             Math.floor(Math.random() * 100) + 1
         );
@@ -15,11 +17,13 @@ function printDouble(number) {
 }
 
 async function printAll() {
-    await printDouble(5);
-    await printDouble(10);
-    await printDouble(22);
-    await printDouble(1);
-    await printDouble(89);
+    let result;
+
+    result = await printDouble(5, 0);
+    result = await printDouble(10, result);
+    result = await printDouble(22, result);
+    result = await printDouble(1, result);
+    result = await printDouble(89, result);
 }
 
 printAll();
