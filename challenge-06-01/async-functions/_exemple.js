@@ -1,3 +1,6 @@
+/* Rocketseat: LaunchBase Bootcamp
+   Challenge 06-01: Mini Challenges */
+
 function printDouble(number){
     setTimeout(
         () => {
