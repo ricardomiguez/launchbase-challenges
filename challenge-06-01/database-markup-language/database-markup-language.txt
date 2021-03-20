@@ -1,5 +1,5 @@
-// Rocketseat: LaunchBase Bootcamp
-// Challenge 06-01: Mini Challenges */
+Rocketseat: LaunchBase Bootcamp
+Challenge 06-01: Mini Challenges
 
 Table customers {
   id int [pk, increment]
