@@ -1,0 +1,37 @@
+<!-- Rocketseat: LaunchBase Bootcamp
+     Challenge 06-01: Mini Challenges -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>
+            Percentual
+        </h2>
+
+        <input type="text" name="percentage" maxlength="9" onkeydown="Mask.apply(this, 'formatPercentage')">
+        <p style="margin-top:8px;">
+            <small style="color:dimgray;">
+                *O valor máximo é 99,9999%
+            </small>
+        </p>
+    </div>
+
+    <div>
+        <h2>
+            CPF
+        </h2>
+
+        <input type="text" name="cpf" maxlength="14" onkeydown="Mask.apply(this, 'formatCPF')">
+    </div>
+</body>
+
+<script src="input-mask.js"></script>
+
+</html>
