@@ -1,0 +1,367 @@
+/* Rocketseat: LaunchBase Bootcamp
+   Challenge 06-01: Mini Challenges */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+
+    background-color: #fff;
+}
+
+header div {
+    padding: 30px;
+
+    text-align: center;
+
+    background-color: #7159c1;
+}
+
+header div a {
+    position: relative;
+
+    margin: 0 15px;
+    padding: 5px 0;
+
+    transition: color .3s;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #af9ee6;
+}
+
+header div a:hover {
+    transition: color .3s;
+
+    color: #fff;
+}
+
+.current-page {
+    color: #fff;
+}
+
+.background img {
+    display: block;
+
+    width: 600px;
+    margin-top: 60px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.company-logo {
+    display: flex;
+
+    padding: 120px 0;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo div {
+    display: inline-flex;
+
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
+
+    border-radius: 50%;
+    background-color: #7159c1;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo div img {
+    height: 127.5px;
+}
+
+.company-logo h1,
+.error h1 {
+    font-size: 75px;
+
+    padding: 0;
+
+    color: #7159c1;
+}
+
+.company-description {
+    width: 600px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.company-description h2,
+.error h2 {
+    font-size: 32px;
+    line-height: 48px;
+
+    color: #4b4b4b;
+}
+
+.company-technologies {
+    display: flex;
+    flex-direction: column;
+
+    padding: 60px 0;
+
+    text-align: center;
+
+    justify-content: center;
+}
+
+.company-technologies div {
+    margin: auto;
+    padding: 60px 0;
+}
+
+.company-technologies h3 {
+    font-size: 24px;
+    font-weight: 400;
+
+    color: #af9ee6;
+}
+
+.company-technologies ul {
+    font-size: 20px;
+    line-height: 60px;
+
+    list-style-type: none;
+
+    color: #7159c1;
+}
+
+.social-networks {
+    padding-top: 60px;
+
+    text-align: center;
+}
+
+.social-networks a {
+    font-size: 14px;
+
+    margin: 0 30px;
+
+    text-decoration: none;
+
+    color: #af9ee6;
+}
+
+.social-networks a:hover {
+    transition: color .3s;
+
+    color: #7159c1;
+}
+
+.page-title {
+    font-size: 48px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 0;
+
+    text-align: center;
+
+    color: #7159c1;
+}
+
+.cards {
+    display: grid;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    overflow: hidden;
+
+    border-radius: 8px;
+    background-color: #7159c1;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.card-image img {
+    width: 100%;
+}
+
+.card-title,
+.card-info {
+    padding: 30px;
+}
+
+.card-title {
+    font-size: 24px;
+    line-height: 32px;
+
+    color: #fff;
+}
+
+.card-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-info p {
+    padding: 8px 0;
+}
+
+.author {
+    padding-left: 0;
+
+    text-align: left;
+
+    color: #fff;
+}
+
+.reading-time {
+    text-align: center;
+
+    color: #fff;
+    border-radius: 4px;
+    background-color: #503e8f;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.modal {
+    position: relative;
+
+    width: 80%;
+    height: 80%;
+    margin: 5% auto;
+
+    background-color: #fff;
+}
+
+.modal-maximize,
+.modal-close {
+    position: absolute;
+    z-index: 10;
+    right: 24px;
+
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+
+    color: #7159c1;
+}
+
+.modal-maximize:hover,
+.modal-close:hover {
+    transition: color .3s;
+
+    color: #af9ee6;
+}
+
+.modal-maximize {
+    bottom: 8px;
+}
+
+.modal-close {
+    top: 8px;
+}
+
+.active {
+    visibility: visible;
+
+    opacity: 1;
+}
+
+.maximize {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.modal-content iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+
+    background-color: #fff;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    width: 380px;
+    margin: auto;
+}
+
+.post-hiperlink {
+    padding: 16px 0;
+
+    transition: background-color .3s;
+    text-align: center;
+
+    background-color: #60a22a;
+}
+
+.post-hiperlink:hover {
+    background-color: #4d961b;
+}
+
+.post-hiperlink a {
+    font-size: 20px;
+    font-weight: 400;
+
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+}
+
+footer
+{
+    font-size: 14px;
+    line-height: 1.4;
+
+    width: 100%;
+    margin-top: 90px;
+    padding: 20px;
+
+    text-align: center;
+
+    color: #fff;
+    background-color: #7159c1;
+}
